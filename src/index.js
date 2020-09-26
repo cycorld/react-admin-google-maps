@@ -122,7 +122,14 @@ export default class GMap extends Component {
   }
 }
 
-export const GMapInput = addField(GMap);
+export const GMapInput = ({ record, source, ...props }) => (
+  <GMap
+    {...props}    
+    input={{ value: record[source] }}
+    searchable={true}
+  />
+);
+
 export const GMapField = ({ record, source, ...props }) => (
   <GMap
     {...props}
